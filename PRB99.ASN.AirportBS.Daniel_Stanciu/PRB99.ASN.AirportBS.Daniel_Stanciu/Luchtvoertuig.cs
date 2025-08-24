@@ -11,6 +11,8 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
         public string ID { get; set; }
         public string Naam { get; set; }
         public bool Onderweg { get; set; }
+
+        // MTR - Multi-dimensional array
         public char[,] Zitplaatsen { get; set; }
 
         protected Luchtvoertuig(string id, string naam, int rijen, int kolommen)
@@ -18,6 +20,8 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
             ID = id;
             Naam = naam;
             Onderweg = false;
+
+            // MTR - Multi-dimensional array
             Zitplaatsen = new char[rijen, kolommen];
             for (int r = 0; r < rijen; r++)
             {
@@ -34,7 +38,10 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
         {
             Console.Write("  ");
             for (int c = 0; c < Zitplaatsen.GetLength(1); c++)
+            {
                 Console.Write((c + 1).ToString("00") + " ");
+            }
+               
             Console.WriteLine();
 
 
@@ -43,15 +50,20 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
                 char row = (char)('A' + r);
                 Console.Write(row + " ");
 
-                if (row == 'D') //// gang
+                if (row == 'D') //gang
                 {
                     for (int c = 0; c < Zitplaatsen.GetLength(1); c++)
+                    {
                         Console.Write("   ");
+                    } 
                 }
                 else
                 {
                     for (int c = 0; c < Zitplaatsen.GetLength(1); c++)
+                    {
                         Console.Write(Zitplaatsen[r, c] + "  ");
+                    }
+                        
                 }
                 Console.WriteLine();
             }
@@ -66,8 +78,15 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
                 for (int c = 0; c < Zitplaatsen.GetLength(1); c++)
                 {
                     char ch = Zitplaatsen[r, c];
-                    if (ch == '-') vrij++;
-                    else if (ch == 'X') bezet++;
+                    if (ch == '-')
+                    {
+                        vrij++;
+
+                    }
+                    else if (ch == 'X')
+                    {
+                        bezet++;
+                    } 
                 }
             }
 
@@ -98,9 +117,19 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
 
 
         }
+
+
+        // MTR - Foreach
         public bool HeeftPassagiers()
         {
-            foreach (var ch in Zitplaatsen) if (ch == 'X') return true;
+            foreach (var ch in Zitplaatsen)
+            {
+                if (ch == 'X')
+                {
+                    return true;
+                } 
+            }
+                
             return false;
         }
         public bool IsVol()
@@ -109,7 +138,10 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
             {
                 for (int c = 0; c < Zitplaatsen.GetLength(1); c++)
                 {
-                    if (Zitplaatsen[r, c] == '-') return false;
+                    if (Zitplaatsen[r, c] == '-')
+                    {
+                        return false;
+                    } 
                 }
             }
             return true;
@@ -117,9 +149,14 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
         public bool KanOpstijgen()
         {
             foreach (var stoel in Zitplaatsen)
-                if (stoel == 'X') return true;
+                if (stoel == 'X')
+                {
+                    return true;
+                }    
             return false;
         }
+
+        // MTR - Tuple or ref/out parameters
         public bool AutoBooking(out char rij, out int kolom)
         {
             rij = '?';
@@ -128,7 +165,11 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
             for (int r = 0; r < Zitplaatsen.GetLength(0); r++)
             {
                 char rijLabel = (char)('A' + r);
-                if (rijLabel == 'D') continue;
+                if (rijLabel == 'D') 
+                {
+                    continue;
+
+                } 
 
                 for (int c = 0; c < Zitplaatsen.GetLength(1); c++)
                 {

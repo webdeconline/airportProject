@@ -12,6 +12,8 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
         //////////HIER ZORGEN WE ERVOOR DAT DE MAPPEN BESTAAN///////////
         string folderVliegtuigen = Path.Combine("Data", "Vliegtuigen");
         string folderHelikopters = Path.Combine("Data", "Helikopters");
+
+        // MTR - List<>
         //////////HIER MAKEN WE EEN NIEUWE LIST VAN VOERTUIGEN//////////
         private List<Luchtvoertuig> voertuigen = new List<Luchtvoertuig>();
 
@@ -310,8 +312,6 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
                 voertuigen.Add(v);
             }
         }
-
-
         private void LaadHelikopters()
         {
             foreach (var file in Directory.GetFiles(folderHelikopters, "*.map"))

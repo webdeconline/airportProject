@@ -25,12 +25,19 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
                 Console.ForegroundColor = ConsoleColor.Red;
 
                 if (IsMilitair)
+                {
                     Console.WriteLine("Informatie over deze militaire helikopter is niet beschikbaar.");
+                }
+                    
                 else if (Onderweg)
+                {
                     Console.WriteLine("Deze helikopter is vertrokken.");
+                }
+                    
                 else if (!KanOpstijgen())
+                {
                     Console.WriteLine("Deze helikopter heeft geen vrije zitplaatsen.");
-
+                }
                 Console.ResetColor();
             }
             else
