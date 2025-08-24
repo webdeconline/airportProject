@@ -8,13 +8,18 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
 {
     internal class Program
     {
+        //Daniel Stanciu
+        //EindOpdracht Airport
+        //Programmeren Basis
+
+
+        ///////DIT IS DE HOOFDMENU VAN DE PROGRAMMA////////
         static void Main(string[] args)
         {
             bool continueProgram = true;
 
             while (continueProgram)
             {
-
                 Console.Clear();  // Maak de console leeg
                 Console.WriteLine("Welkom bij de luchthaven!");
                 Console.WriteLine("Maak je keuze tussen:");
@@ -28,10 +33,11 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
                     {
                         case 1:
                             var vluchten = new LuchtvoertuigBeheer();
+                            vluchten.Start();
                             break;
-
                         case 2:
                             var hotel = new HotelManagement();
+                            hotel.Start();
                             break;
                         case 0:
                             Console.WriteLine("Fijne dag!");
@@ -42,9 +48,9 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
                             break;
                     }
                 }
-                else 
+                else
                 {
-                    Console.WriteLine("Ongeldige invoer!");
+                    Console.WriteLine("Ongeldige invoer.");
                 }
             }
         }
