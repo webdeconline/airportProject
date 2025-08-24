@@ -10,6 +10,43 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
     {
         static void Main(string[] args)
         {
+            bool continueProgram = true;
+
+            while (continueProgram)
+            {
+
+                Console.Clear();  // Maak de console leeg
+                Console.WriteLine("Welkom bij de luchthaven!");
+                Console.WriteLine("Maak je keuze tussen:");
+                Console.WriteLine("1 - Vluchten");
+                Console.WriteLine("2 - Hotel");
+                Console.WriteLine("0 - Afsluiten");
+
+                if (int.TryParse(Console.ReadLine(), out int keuze))
+                {
+                    switch (keuze)
+                    {
+                        case 1:
+                            var vluchten = new LuchtvoertuigBeheer();
+                            break;
+
+                        case 2:
+                            var hotel = new HotelManagement();
+                            break;
+                        case 0:
+                            Console.WriteLine("Fijne dag!");
+                            continueProgram = false;
+                            break;
+                        default:
+                            Console.WriteLine("Ongeldige keuze.");
+                            break;
+                    }
+                }
+                else 
+                {
+                    Console.WriteLine("Ongeldige invoer!");
+                }
+            }
         }
     }
 }

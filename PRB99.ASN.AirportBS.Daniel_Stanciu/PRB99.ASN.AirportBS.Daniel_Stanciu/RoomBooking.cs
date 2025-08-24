@@ -8,5 +8,8 @@ namespace PRB99.ASN.AirportBS.Daniel_Stanciu
 {
     internal class RoomBooking
     {
+        
+
+
     }
 }
